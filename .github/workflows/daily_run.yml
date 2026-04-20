@@ -5,16 +5,20 @@ on:
     - cron: '0 8 * * *'
   workflow_dispatch:
 
+# هذا المتغير هو الحل الدائم المعتمد من GitHub لتخطي رسائل التحديث المستقبلية
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   run-bot:
     runs-on: ubuntu-latest
 
     steps:
     - name: Checkout repository code
-      uses: actions/checkout@v4  # تم التحديث هنا
+      uses: actions/checkout@v4
 
     - name: Set up Python
-      uses: actions/setup-python@v5 # تم التحديث هنا
+      uses: actions/setup-python@v5
       with:
         python-version: '3.10'
 
