@@ -2,9 +2,8 @@ name: Daily Permit Report Alert
 
 on:
   schedule:
-    # التوقيت: 08:00 صباحاً بتوقيت جرينتش UTC يوازي 11:00 صباحاً بتوقيت السعودية/اليمن
     - cron: '0 8 * * *'
-  workflow_dispatch: # للسماح لك بتشغيله يدوياً للتجربة
+  workflow_dispatch:
 
 jobs:
   run-bot:
@@ -12,10 +11,10 @@ jobs:
 
     steps:
     - name: Checkout repository code
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4  # تم التحديث هنا
 
     - name: Set up Python
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v5 # تم التحديث هنا
       with:
         python-version: '3.10'
 
@@ -26,7 +25,6 @@ jobs:
 
     - name: Run Telegram Alert Script
       env:
-        # هنا نخبر السيرفر أن يسحب البيانات السرية من إعداداتك
         DROPBOX_URL: ${{ secrets.DROPBOX_URL }}
         BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
         CHAT_ID: ${{ secrets.CHAT_ID }}
