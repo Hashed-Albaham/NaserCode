@@ -1,8 +1,8 @@
 name: Daily Permit Report Alert
 
 on:
-  schedule:
-    - cron: '0 8 * * *'
+#  schedule:
+#    - cron: '0 8 * * *'
   workflow_dispatch:
 
 # هذا المتغير هو الحل الدائم المعتمد من GitHub لتخطي رسائل التحديث المستقبلية
